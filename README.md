@@ -2,4 +2,5 @@
 
 ## Install
 
-* Use : run `gulpfile.js` in bash `gulp` and see result in dist folder.
+* Use:
+	run `gulpfile.js` (input in bash `gulp`). And see result in dist folder.
