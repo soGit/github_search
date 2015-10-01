@@ -21,7 +21,7 @@
 			    <input type="text" ng-model="search" class="form-control" placeholder="For search input repositories name">
 			  </div>
 			</form>
-			<table class="table">
+			<table class="table" ng-show='results.length'>
 				<thead>
 				  <tr>
 				    <th>#</th>
@@ -31,7 +31,7 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr ng-repeat="result in repoSearch">
+				  <tr ng-repeat="result in repoClosedIssue">
 				    <th scope="row">{{$index + 1}}</th>
 				    <td>{{result.repoName}}</td>
 				    <td><a href="{{result.url}}">{{result.url}}</a></td>
@@ -39,6 +39,9 @@
 				  </tr>
 				</tbody>
 			</table>
+			<div class="alert alert-warning" role="alert" ng-hide='results.length'>
+			      <strong>Sorry!</strong> No matches found.
+			</div>
 			<!-- dependencies here -->
 			<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/2.3.22/rx.all.js"></script>
