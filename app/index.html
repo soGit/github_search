@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<title>Search</title>
+		<!-- style here -->
+		<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!-- build:css css/vendor.css -->
+		<!-- bower:css -->
+		<!-- endbower -->
+		<!-- endbild -->
+		<!-- bild:css css/main.css -->
+		<!-- endbuild -->
+	</head>
+	<body ng-app="mainApp">
+		<div class="container" ng-controller="AppCtrl">
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1"><h2>Github search</h2></label>
+			    <input type="text" ng-model="search" class="form-control" placeholder="For search input repositories name">
+			  </div>
+			</form>
+			<table class="table">
+				<thead>
+				  <tr>
+				    <th>#</th>
+				    <th>Repo name</th>
+				    <th>url</th>
+				    <th>Closed Issues</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="result in repoSearch">
+				    <th scope="row">{{$index + 1}}</th>
+				    <td>{{result.repoName}}</td>
+				    <td><a href="{{result.url}}">{{result.url}}</a></td>
+				    <td>{{result.closedIsuuesCount}}</td>
+				  </tr>
+				</tbody>
+			</table>
+			<!-- dependencies here -->
+			<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/2.3.22/rx.all.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+			<!-- build:js js/vendor.js -->
+			<!-- bower:js -->
+			<script src="../node_modules/rx-angular/dist/rx.angular.js"></script>
+			<!-- endbower -->
+			<!-- endbuild -->
+			<!-- build:js js/main.js -->
+			<script src="js/render/app.js"></script>
+			<!-- endbuild -->
+		</div>
+	</body>
+</html>
